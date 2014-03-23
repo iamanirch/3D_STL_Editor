@@ -1,0 +1,103 @@
+/*
+ * This is a JavaScript Scratchpad.
+ *
+ * Enter some JavaScript, then Right Click or choose from the Execute Menu:
+ * 1. Run to evaluate the selected text (Ctrl+r),
+ * 2. Inspect to bring up an Object Inspector on the result (Ctrl+i), or,
+ * 3. Display to insert the result in a comment after the selection. (Ctrl+l)
+ */
+Array.prototype.multiply = function (array) {
+    var result = [
+    ];
+    for (var i = 0; i < this.length; i++) {
+        result[i] = [
+        ];
+        for (var k = 0; k < array[0].length; k++) {
+            var sum = 0;
+            for (var j = 0; j < array.length; j++) {
+                sum += this[i][j] * array[j][k];
+            }
+            result[i].push(sum);
+        }
+    }
+    return result;
+};
+var a = [
+    [0,
+    0,
+    - 1],
+    [
+        0,
+        0,
+        - 1
+    ],
+    [
+        - 1,
+        0,
+        0
+    ],
+    [
+        - 1,
+        0,
+        0
+    ],
+    [
+        0,
+        - 1,
+        0
+    ],
+    [
+        0,
+        - 1,
+        0
+    ],
+    [
+        0,
+        0,
+        1
+    ],
+    [
+        0,
+        0,
+        1
+    ],
+    [
+        1,
+        0,
+        0
+    ],
+    [
+        1,
+        0,
+        0
+    ],
+    [
+        0,
+        1,
+        0
+    ],
+    [
+        0,
+        1,
+        0
+    ]
+];
+var b = [
+    [0.707,
+    0.707,
+    0],
+    [
+        - 0.707,
+        0.707,
+        0
+    ],
+    [
+        0,
+        0,
+        1
+    ]
+];
+c = a.multiply(b);
+/*
+0,0,-1,0,0,-1,-0.707,-0.707,0,-0.707,-0.707,0,0.707,-0.707,0,0.707,-0.707,0,0,0,1,0,0,1,0.707,0.707,0,0.707,0.707,0,-0.707,0.707,0,-0.707,0.707,0
+*/

@@ -1,0 +1,270 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: #FFF;
+    font-family: trebuchet ms, verdana, tahoma, arial;
+    font-size: 75%;
+    line-height: 200%;
+}
+
+img
+{
+    border: 0px;
+}
+
+a:active, a:visited, a:link
+{
+    color: #215968;
+    text-decoration: underline;
+}
+
+a:hover
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+#menu
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height:100%;
+    background-color:white;
+
+}
+#menuTest
+{
+    position: absolute;
+    top: 27px;
+    left: 0;
+    width: 200px;
+    background-color: white;
+
+}
+#menuTestInsidePages
+{
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background-color: white;
+
+}
+
+#menutop
+{
+    width: 200px;
+    border-bottom:2px solid white;
+    background-color: #829858;
+    text-align:center;
+    font-size:21px;
+    color:white;
+    padding: 12px 0px 11px 0px;
+
+}
+
+#menutop img
+{
+    width:168px;
+    position:relative;
+    left:-2px
+
+}
+#menutopInsidePages
+{
+    width: 200px;
+    background-color: #829858;
+    text-align:center;
+    font-size:13px;
+    color:white;
+
+
+}
+
+
+#menubottom
+{
+
+    background-color:#829858;
+    text-align:justify;
+    font-size:12px;
+    color:#393B0B;
+    width:191px;
+    font-family:trebuchet ms;
+    padding:5px 3px 10px 3px;
+    position:relative;
+    top:0px;
+    left:1px;
+    line-height: 130%;
+}
+
+#gap
+{
+    padding: 5px 0 5px 0;
+    border-bottom:2px solid white;
+}
+
+#line
+{
+    padding: 35px 0 5px 0;
+    border-bottom:1px solid #829858;
+    width:765px;
+}
+
+#lineLessons
+{
+    border-bottom:1px solid #829858;
+    width:723px;
+
+}
+#lineLessons1
+{position:relative;
+ top:-10px;
+ border-bottom:1px solid #829858;
+ width:100%;
+
+}
+#lessons a
+{
+    text-decoration: none
+}
+
+#main
+{
+    width: 777px;
+    margin-left:0px;
+    padding: 20px;
+    font-size:13px;
+
+}
+
+#main table
+{
+    position:relative;
+    top:-7px
+
+}
+
+#main h2
+{
+    border-bottom: 1px solid #808080;
+
+    font-family: arial;
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-size: 200%;
+    text-align: left;
+    color:#444;
+    position:relative;
+    top:-19px;
+    line-height:41px
+
+}
+
+#main h3
+{
+    border-bottom: 1px solid #808080;
+    font-family: arial;
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-size: 200%;
+    text-align: center;
+    color:#B45F04;
+
+
+}
+
+#main h4
+{
+    font-family: arial;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 160%;
+    text-align: left;
+    color:#8A2908;
+    padding-bottom:1px
+
+}
+
+#main h5
+{
+    font-family: arial;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 80%;
+    text-align: left;
+    color:black;
+    padding-left:7px
+
+
+}
+#main h6
+{
+    font-family: arial;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 140%;
+    text-align: left;
+    color:#8A2908;
+    padding-bottom:1px
+
+
+}
+#main h7
+{
+    font-family: arial;	font-weight: 50;letter-spacing: 1px;font-size: 140%;text-align: left;color:#8A2908;
+}
+
+#main h8
+{
+    font-family: arial;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 120%;
+    font-weight: bold;
+    text-align: left;
+    color:#8A2908;
+    padding-bottom:1px
+}
+
+#announcement
+{   text-indent: 5px;
+    border: 1px solid white;
+    margin: 8px;
+    padding: 1px;
+    width:180px;
+    background: #F2F5A9;
+    color: #222A0A;
+    font-size: 13px;
+    line-height:15px;
+    text-align: left;
+}
+#button {
+    position:relative;
+    display: block;
+    color:transparent;
+    width: 200px;
+    height: 25px;
+    margin: 0px auto;
+    cursor: pointer;
+    font-family:Calibri,Helvetica,Arial;
+    font-size: 15px;
+    font-weight:bold;
+    color:#FFFFFF;
+    top:00px;
+    background-color:#E46C0A;
+    
+}
+.fb-comments
+{
+    position:relative;
+    left:60px;
+}
+
+.fb-comments-large
+{
+    position:relative;
+    left:0px;
+}
