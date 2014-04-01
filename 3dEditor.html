@@ -50,7 +50,7 @@
 					<button name="myPlanes" onclick="planeExtractionX()">X-axis </button>
 					<button name="myPlanes" onclick="planeExtractionY()">Y-axis </button>
 					<button name="myPlanes" onclick="planeExtractionZ()">Z-axis </button> <br><br>
-				<button onclick="resetScene()"> Reset </button> <button onclick="Test()"> Test </button> 
+				<button onclick="resetScene()"> Reset </button> <button onclick="downloadSTL()"> Download </button> 
 			</div>
         </div>
 
@@ -162,10 +162,12 @@
 				
 			// Declaration of various variables
             [normalList, indexList, vertexList] = MeshToList(meshOld[0]);
+			var meshNew = initMesh();
             var XPlane = initMesh(); var YPlane = initMesh(); var ZPlane = initMesh();
 			var indexXPlane = []; 	 var indexYPlane = [];	  var indexZPlane = [];
 			var extrudeArray = [];
 			var userNormal = {};
+			var stringSTL = "solid \n"
 			
 			// Plane segregation from model list
 			for (var k = 0; k < normalList.length; k++){
@@ -195,7 +197,8 @@
 					ZPlane.indexBuffer.push(-1);
 				}
 			}
-
+			var garb = stringifyVertex(vertexList[indexList[0][0]]);
+			
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 //		FUNCTIONS START HERE
 //--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -249,7 +252,6 @@
 			//Extrusion of a single Plane specified by userNormal
 			function extrudePlane(){
 				var ext = parseFloat(document.getElementById("extrude").value);
-			//	console.log(a);
 				for(var i=0; i< extrudeArray.length; i++){
 					if([1,0,0].compareObj(userNormal))
 						vertexList[extrudeArray[i]][0] += ext;
@@ -354,7 +356,6 @@
 
 			// Render new scene with modified arrays
 			function newRender(vertexnew, normalnew){
-				var meshNew = initMesh();
 				// Topology not changing
 				meshNew.indexBuffer = meshOld[0].indexBuffer; 
 				//VertexList conversion
@@ -364,9 +365,11 @@
 					meshNew.vertexBuffer.push(vertexnew[i][2]);
 				}
 				//NormalList conversion
-				if (isNaN(normalnew)){ meshNew.faceNormalBuffer = meshOld[0].faceNormalBuffer; 
+				if (isNaN(normalnew)){ 
+					meshNew.faceNormalBuffer = meshOld[0].faceNormalBuffer; 
 				}
-				else{ meshNew.faceNormalBuffer = normalnew; 
+				else{ 
+					meshNew.faceNormalBuffer = normalnew; 
 				}
 				meshNew.init();
                 newScene(meshNew);
@@ -402,7 +405,6 @@
 					IList[i][0] = mesh.indexBuffer[ i * 4    ];
 					IList[i][1] = mesh.indexBuffer[(i * 4) + 1];
 					IList[i][2] = mesh.indexBuffer[(i * 4) + 2];
-				//	IList[i][3] = mesh.indexBuffer[(i * 4) + 3];
 					if (i < (mesh.vertexBuffer.length) / 3){
 						VList[i] = new Array();
 						VList[i][0] = mesh.vertexBuffer[ i * 3    ];
@@ -476,6 +478,31 @@
 					break;
 				}
 				viewer.update();
+			}
+			
+			function stringifyVertex(vec){
+				return "vertex "+vec[0]+" "+vec[1]+" "+vec[2]+" \n";
+			}
+			
+			// Given a JSC3D.Mesh, create an STL string
+			function generateSTL(mesh){
+				[nList, iList, vList] = MeshToList(mesh);
+				for(var i = 0; i< nList.length; i++){
+				stringSTL += ("facet normal "+stringifyVertex( nList[i] ));
+				stringSTL += ("outer loop \n");
+				stringSTL += stringifyVertex( vList[ iList[i][0] ]);
+				stringSTL += stringifyVertex( vList[ iList[i][1] ]);
+				stringSTL += stringifyVertex( vList[ iList[i][2] ]);
+				stringSTL += ("endloop \n");
+				stringSTL += ("endfacet \n");
+				}
+				stringSTL += ("endsolid");
+			}
+			
+			//Downloads STL file -- logs as of now
+			function downloadSTL(){
+				generateSTL(meshNew);
+				console.log(stringSTL);
 			}
 			
         </script>
