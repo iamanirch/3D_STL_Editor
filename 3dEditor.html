@@ -162,12 +162,12 @@
 				
 			// Declaration of various variables
             [normalList, indexList, vertexList] = MeshToList(meshOld[0]);
-			var meshNew = initMesh();
+		//	var meshNew = initMesh();
             var XPlane = initMesh(); var YPlane = initMesh(); var ZPlane = initMesh();
 			var indexXPlane = []; 	 var indexYPlane = [];	  var indexZPlane = [];
 			var extrudeArray = [];
 			var userNormal = {};
-			var stringSTL = "solid \n"
+		//	var stringSTL = "solid \n"
 			
 			// Plane segregation from model list
 			for (var k = 0; k < normalList.length; k++){
@@ -356,6 +356,7 @@
 
 			// Render new scene with modified arrays
 			function newRender(vertexnew, normalnew){
+				var meshNew = initMesh();
 				// Topology not changing
 				meshNew.indexBuffer = meshOld[0].indexBuffer; 
 				//VertexList conversion
@@ -487,6 +488,7 @@
 			// Given a JSC3D.Mesh, create an STL string
 			function generateSTL(mesh){
 				[nList, iList, vList] = MeshToList(mesh);
+				var stringSTL = "solid \n"; 
 				for(var i = 0; i< nList.length; i++){
 				stringSTL += ("facet normal "+stringifyVertex( nList[i] ));
 				stringSTL += ("outer loop \n");
