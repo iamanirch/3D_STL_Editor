@@ -1,0 +1,60 @@
+<html>
+<head>
+<title> Loader ThreeJS STL </title>
+</head>
+
+<body>
+<script src="js/Three.js"></script>
+<script src="js/STLLoader.js"></script>
+<div id="ThreeJS" style="position: absolute; left:0px; top:0px"></div>
+<script>
+
+// MAIN
+
+// standard global variables
+var container, scene, camera, renderer, controls, stats;
+var geometry, material, mesh;
+var loader = new THREE.STLLoader();
+loader.addEventListener( 'load', function ( event ) {
+
+	var geometry = event.content;
+	mesh.position.set(0,0,0);
+	scene.add( mesh );
+
+} );
+loader.load( 'Model/1017.STL' );
+
+init();
+animate();
+
+function init(){
+	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+    camera.position.z = 1000;
+
+    scene = new THREE.Scene();
+
+    geometry = new THREE.BoxGeometry( 200, 200, 200 );
+    material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+
+    mesh = new THREE.Mesh( geometry, material );
+    scene.add( mesh );
+
+    renderer = new THREE.CanvasRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+    document.body.appendChild( renderer.domElement );
+}
+
+function animate() {
+    requestAnimationFrame( animate );
+	render();
+}
+
+function render() 
+{	
+	renderer.render( scene, camera );
+}
+
+</script>
+</body>
+</html>
